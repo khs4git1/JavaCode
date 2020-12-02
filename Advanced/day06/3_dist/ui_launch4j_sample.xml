@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\SOO\Advanced\day06\3_dist\ui.jar</jar>
+  <outfile>C:\SOO\Advanced\day06\3_dist\ui.exe</outfile>
+  <errTitle>JRE 5 버젼 이상의 설치가 필요해요 </errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\SOO\Advanced\day06\3_dist\icon.ico</icon>
+  <classPath>
+    <mainClass>soo.ui.test.B</mainClass>
+  </classPath>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.5.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>Ver 1.0</txtFileVersion>
+    <fileDescription>It&apos;s the ui test app in class</fileDescription>
+    <copyright>khs</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>Ver 1.0</txtProductVersion>
+    <productName>ui</productName>
+    <companyName></companyName>
+    <internalName>ui</internalName>
+    <originalFilename>ui.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>KOREAN</language>
+  </versionInfo>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <bundledJreErr>JRE 5 이상을 설치해주세요</bundledJreErr>
+    <jreVersionErr>JRE 5 이상을 설치해주세요</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>이미 실행중입니다</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>

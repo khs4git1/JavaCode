@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\SOO\dist\sootalk.jar</jar>
+  <outfile>C:\SOO\dist\sootalk.exe</outfile>
+  <errTitle>JRE 5 버젼 이상의 설치가 필요해요 </errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\SOO\dist\icon.ico</icon>
+  <classPath>
+    <mainClass>soo.net.UdpChat</mainClass>
+  </classPath>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.5.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>Ver 1.0</txtFileVersion>
+    <fileDescription>It&apos;s the soo&apos;s talk app with udp</fileDescription>
+    <copyright>김형수</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>Ver 1.0</txtProductVersion>
+    <productName>sootalk</productName>
+    <companyName></companyName>
+    <internalName>sootalk</internalName>
+    <originalFilename>sootalk.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>KOREAN</language>
+  </versionInfo>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <bundledJreErr>JRE 5 이상을 설치해주세요</bundledJreErr>
+    <jreVersionErr>JRE 5 이상을 설치해주세요</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>이미 실행중입니다</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>
