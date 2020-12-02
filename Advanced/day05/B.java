@@ -23,7 +23,7 @@ class B extends JFrame {
 		cp = getContentPane();
 		cp.add(laImg);
  
-        laFont.setText("춤 추는 아이들");
+        laFont.setText("춤 추는 친구들");
 		cp.add(laFont, BorderLayout.NORTH);
 
 	    setUI();
@@ -63,7 +63,7 @@ class B extends JFrame {
 		ii = new ImageIcon(location); */
 	}
 	void setUI(){
-		setTitle("움직이는 gif");
+		setTitle("움직여라 gif야");
 		pack();
 		setVisible(true);
 		//setLocation(300, 100);
