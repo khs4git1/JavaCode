@@ -1,0 +1,31 @@
+< JDBC ( Java DataBase Connectivity ) >
+
+1) 드라이버 로딩 
+   Class.forName("oracle.jdbc.driver.OracleDriver");
+
+2) Connection 생성 (DBMS와 연결) 
+   String url = "jdbc:oracle:thin:@127.0.0.1:1521:JAVA";
+   String usr = "scott";
+   String pwd = "tiger";
+   Connection con = DriverManager.getConnection(url, usr, pwd);
+
+3) Statement 생성 
+   Statement stmt = con.createStatement();
+
+4) Statement 실행
+   stmt.execute(DDL);
+   int i = stmt.executeUpdate(DML);
+   ResultSet rs = stmt.executeQuery(DQL);
+
+5) ResultSet 생성( 데이터추출 )  
+   ResultSet rs = stmt.executeQuery(DQL);
+   rs.next();
+   XXX value = rs.getXXX(); 
+
+6) 연결객체 닫기   
+   rs.close();
+   stmt.close();
+   con.close();
+
+
+cf) 오라클 드라이버(ojdbc8.jar) 클래스패스( == Build Path )
