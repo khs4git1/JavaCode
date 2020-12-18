@@ -33,6 +33,8 @@ class C {
 			rs = stmt.executeQuery(sql);
 			
 			forward(rs);
+			rs.beforeFirst(); //BOF
+			forward(rs);
 		}catch(SQLException se) {}
 	}
 	void forward(ResultSet rs) {
@@ -47,6 +49,8 @@ class C {
 				pln(no+"\t"+name+"\t"+phone+"\t"+rdate);
 			}
 			
+			back(rs);
+			rs.afterLast(); //EOF
 			back(rs);
 		}catch(SQLException se) {}
 	}
