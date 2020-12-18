@@ -42,7 +42,15 @@ class A {
 		
 		//updateD(20, "박감찬", "11122223333");
 		
-		deleteD(30);
+		//deleteD(30);
+		
+		//selectD();
+		
+		//insertD(40, "이길동", "01012341236");
+		
+		selectD("길동");
+		
+		closeAll();
 	}
 	
 	String tname = "JDBCT";
@@ -87,7 +95,7 @@ class A {
     	//(4) Statement 실행
     	try {
     		int i = stmt.executeUpdate(sql);
-    		if(i>0) System.out.println(i+"개의 행이 입력 완료");
+    		if(i>0) System.out.println("(4) "+ i+"개의 행이 입력 완료");
     		else System.out.println("입력 실패");
     	}catch(SQLException se) {
     		System.out.println("입력 실패 se:"+ se);
@@ -98,7 +106,7 @@ class A {
     	//(4) Statement 실행
     	try {
     		int i = stmt.executeUpdate(sql);
-    		if(i>0) System.out.println(i+"개의 행이 수정 완료");
+    		if(i>0) System.out.println("(4) "+i+"개의 행이 수정 완료");
     		else System.out.println("수정 실패");
     	}catch(SQLException se) {
     		System.out.println("수정 실패 se:"+ se);
@@ -109,14 +117,85 @@ class A {
     	//(4) Statement 실행
     	try {
     		int i = stmt.executeUpdate(sql);
-    		if(i>0) System.out.println(i+"개의 행이 삭제 완료");
+    		if(i>0) System.out.println("(4) "+ i+"개의 행이 삭제 완료");
     		else System.out.println("삭제 실패");
     	}catch(SQLException se) {
     		System.out.println("삭제 실패 se:"+ se);
     	}
     }
-    
+    void selectD() {
+    	ResultSet rs = null;
+    	String sql = "select * from "+tname+" order by NO";
+    	//(4) Statement 실행
+    	try {
+    		rs = stmt.executeQuery(sql);
+    		int count = 0;
+    	    System.out.println("NO\tNAME\tPHONE\t\tRDATE");
+    	    System.out.println("---------- ---------- ----------- --------");
+    	    //(5) 데이터 추출
+    		while(rs.next()) {
+	    		int no = rs.getInt(1);
+	    		String name = rs.getString(2);
+	    		String phone = rs.getString(3);
+	    		Date rdate = rs.getDate(4);
+	    		System.out.println(no+"\t"+name+"\t"+phone+"\t"+rdate);
+	    		count++;
+    		}
+    		System.out.println("---------- ---------- ----------- --------");
+    		System.out.println("(4)(5) 총 "+count+"개 데이터 검색 완료");
+    	}catch(SQLException se) {
+    	}finally {
+    		try {
+    			rs.close();
+    		}catch(SQLException se) {}
+    	}
+    }
+    void selectD(String name) {
+    	ResultSet rs = null;
+    	//String sql = "select * from "+tname+" order by NO";
+    	//String sql = "select * from "+tname+" where NAME='"+name+"'";
+    	String sql = "select * from "+tname+" where NAME like '%"+name+"%'";
+    	//(4) Statement 실행
+    	try {
+    		rs = stmt.executeQuery(sql);
+    		int count = 0;
+    	    System.out.println("NO\tNAME\tPHONE\t\tRDATE");
+    	    System.out.println("---------- ---------- ----------- --------");
+    	    //(5) 데이터 추출  
+    		while(rs.next()) {
+	    		int no = rs.getInt("NO");
+	    		//String name = rs.getString("NAME");
+	    		String phone = rs.getString("PHONE");
+	    		Date rdate = rs.getDate("RDATE");
+	    		System.out.println(no+"\t"+name+"\t"+phone+"\t"+rdate);
+	    		count++;
+    		}
+    		System.out.println("---------- ---------- ----------- --------");
+    		System.out.println("(4)(5) 총 "+count+"개 데이터 검색 완료");
+    	}catch(SQLException se) {
+    	}finally {
+    		try {
+    			rs.close();
+    		}catch(SQLException se) {}
+    	}
+    }
+    void closeAll() {
+    	//(6) 연결 객체들 닫기 
+        try {
+        	stmt.close();
+        	con.close();
+        	System.out.println("(6) 연결 객체들 닫기 완료"); 
+        }catch(SQLException se) {}
+    }
 	public static void main(String[] args) {
 		A a = new A();
 	}
 }
+
+
+
+
+
+
+
+
