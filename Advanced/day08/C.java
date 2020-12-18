@@ -17,7 +17,11 @@ class C {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, usr, pwd);
-			stmt = con.createStatement();
+			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			/*
+			 ResultSet.TYPE_FORWARD_ONLY, ResultSet.TYPE_SCROLL_INSENSITIVE, or ResultSet.TYPE_SCROLL_SENSITIVE
+			 ResultSet.CONCUR_READ_ONLY or ResultSet.CONCUR_UPDATABLE
+			 * */
 		}catch(ClassNotFoundException cnfe) {
 			pln("드라이버가 클래스패스 걸리지 않았음");
 		}catch(SQLException se) {
@@ -33,6 +37,7 @@ class C {
 	}
 	void forward(ResultSet rs) {
 		try {
+			pln("< 순방향 >");
 			pln("NO \t NAME \t PHONE \t RDATE");
 			while(rs.next()) {
 				int no = rs.getInt(1);
@@ -46,7 +51,17 @@ class C {
 		}catch(SQLException se) {}
 	}
 	void back(ResultSet rs) { //구현하시오
-		
+		try {
+			pln("< 역방향 >");
+			pln("NO \t NAME \t PHONE \t RDATE");
+			while(rs.previous()) {
+				int no = rs.getInt(1);
+				String name = rs.getString(2);
+				String phone = rs.getString(3);
+				Date rdate = rs.getDate(4);
+				pln(no+"\t"+name+"\t"+phone+"\t"+rdate);
+			}
+		}catch(SQLException se) {}
 	}
 	void pln(String str) {
 		System.out.println(str);
