@@ -94,6 +94,6 @@ class A {
 		A a = new A();
 		a.selectD();
 		//a.selectD("길동");
-		//a.insertD(50, "김길동", "12312341234");
+		//a.insertD(60, "임길동", "12312341235");
 	}
 }
