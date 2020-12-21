@@ -1,5 +1,7 @@
 package day09.bank;
 
+import java.sql.SQLException;
+
 public interface Transfer {
 	boolean isMemeber(String email); //S
 	boolean checkBalance(String sender, long amount); //S
@@ -9,7 +11,7 @@ public interface Transfer {
 	void showResult(String sender, String receiver); //S
 	void closeAll();
 	
-	boolean transfer(String sender, String receiver, long amount); // for User
+	boolean transfer(String sender, String receiver, long amount) throws SQLException; // for User
 }
 
 //1. 계좌주의 이메일이 맞는지 체킹 
